@@ -1,0 +1,7 @@
+sleep 1:6:blank.txt:blank-out.txt
+ls -l:6:blank.txt:ls-out.txt
+sleep 1:6:blank.txt:blank-out.txt
+quota -v:6:blank.txt:quota-out.txt
+sleep 1:6:blank.txt:blank-out.txt
+w:6:blank.txt:w-out.txt
+cat ls-out.txt quota-out.txt w-out.txt:none:blank.txt:everything.txt

@@ -1,0 +1,33 @@
+/* CSci4061 F2010 Assignment 1
+* login: itlabs_login_name (login used to submit)
+* Solaris
+* date: 10/05/10
+* name: kiel brezina, neil jenson, charlie elverson
+* id: 3329434, 3704779, 3692664
+
+PURPOSE:
+	graphexec takes in a list of processes to be executed and executes them in the correct order. This means if process A depends on the output from process B in order to run, process A will not run until process B has finished.
+
+TO COMPILE:
+	open a terminal and navigate to the directory containing all the source files
+	enter the command "make all"
+	the make file included will create an executable file named "graphexec" in the current directory
+
+TO RUN:
+	open a terminal and navigate to where the file "graphexec" is located (this will be wherever you saved the source code, unless you moved graphexec yourself after compiling)
+	run the command "./graphexec <input_file>" <input_file> refers to an input file specified by the user
+
+FORMAT OF INPUT FILES:
+	Input files contain lines representing processes to be executed. Line numbering starts at 0. Each line is made up of four parts separated by colons.
+	Each line should look like this: "program name with arguments:list of children IDs:input file:output file" (without the quotes)
+
+	The first part is the program to run and any arguments (i.e. "echo hi there" or "cd /home/me").
+	
+	The second part is a list of all the children of the current line. These are represented by integers separated by spaces. So, if this section reads "2 3", the second and third lines in the file are children of this line's program. The program on the current line will not execute until after all its children have executed. If the current line has no children, it must be specified as "none"
+
+	The third part is the input file for the current line's program
+
+	The fourth and final part of the line is where the output from the command will be directed.
+
+PROGRAM SPECIFICATIONS:
+	graphexec takes the input file and creates an array of nodes based on the content. each node represents one line of the input file. These nodes are examined for eligibility to run. When a node becomes eligible to run it does so. 
